@@ -59,6 +59,8 @@ file_path = get_flex_statement(
 | `--output` | `-o` | Output file path | `statements/jan.csv` |
 | `--help` | `-h` | Show help | |
 
+⚠️ **Important**: Date parameters may be ignored if your IB Flex Query template has a fixed date range. Check your flex query configuration in IB Account Management.
+
 ## API Reference
 
 ```python
@@ -73,6 +75,10 @@ def get_flex_statement(output_path=None, start_date=None, end_date=None):
     
     Returns:
         Path: Location of downloaded file
+        
+    Note:
+        Date parameters may be ignored if the IB Flex Query template 
+        has a fixed date range configured.
     """
 ```
 
