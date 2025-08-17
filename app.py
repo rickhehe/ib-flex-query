@@ -146,6 +146,10 @@ def get_flex_statement(output_path=None, start_date=None, end_date=None):
         
     Returns:
         Path: Path to the saved file
+        
+    Note:
+        Date parameters may be ignored if the IB Flex Query template has a fixed date range.
+        Check your flex query configuration in IB Account Management if dates don't work.
     """
     if output_path is None:
         output_path = Path("data/processed/flex_statement.csv")
@@ -162,6 +166,8 @@ def get_flex_statement(output_path=None, start_date=None, end_date=None):
         if end_date:
             date_info.append(f"to {end_date}")
         print(f"Date range: {' '.join(date_info)}")
+        print("⚠️  Warning: Date parameters may be ignored if your IB Flex Query template has a fixed date range.")
+        print("   Check your flex query configuration in IB Account Management if dates don't work as expected.")
     
     # Load configuration
     config = load_config()
